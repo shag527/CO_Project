@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> HOME </title>  
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/simple-line-icons.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100,200,300,500,600,800,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<div class="main-header" id="main-header">
+  <nav class="navbar mynav navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href={% url "home" %}>MIPS</a> </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href={% url "home" %}>Home</a></li>
+          <li><a href={% url "doc" %}>Documentation</a></li>
+          <li class="active"><a href={% url "projreport" %}>Project Report</a></li>
+          <li><a href={% url "working" %}>Working</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="banner" id="banner">
+  <div class="bg-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="banner-text">
+            <h2><u>Project Report</u></h2>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer>
+</footer>
+
+</body>
+</html>
