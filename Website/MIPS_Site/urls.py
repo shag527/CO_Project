@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('home',views.home,name="home"),
+    path('simulator',views.simulate,name="simulate"),
     path('doc',views.ViewDoc,name="doc"),
     path('doc1',views.ViewDoc1,name="doc1"),
     path('doc2',views.ViewDoc2,name="doc2"),
