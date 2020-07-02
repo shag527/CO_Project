@@ -25,7 +25,7 @@ SECRET_KEY = 'dlc1+oh2s^ks_m9@gpsy)(x_j@_!&3mmsdd-vtb$@r2ea_li2%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mipsprojectt.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['mipsprojectt.herokuapp.com']
 
 
 # Application definition
