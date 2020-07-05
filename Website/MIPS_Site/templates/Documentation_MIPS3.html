@@ -48,10 +48,72 @@
     </div>
   </div>
 </div>
-<br><br><p>
+<p><br><br>
+ <center> <h2>Basic Idea</h2></center>
 In the memory hierarchy, cache is the ﬁrst encountered memory when an address leaves the central processing unit(CPU). It is expensive, relatively small as compared to the memories on other levels of the hierarchy and provides provisional storage that supplies most of the information requests of the CPU, due to some customized strategies that control its operation. 
 
 <br><br>On-chip cache sizes are on the rise with each generationof microprocessors to bridge the ever-widening memory-processor performance gap. According to a literature survey, caches consume 25% to 50% of total chip energy, while covering only 15% to 40% of total chip area, whereas designers have conventionally focused their design eﬀorts on improving cache performance as these statistics and technology trends visibly indicate that there is much to begained from making energy and area, as well as performance, front-end design issues.
+
+ <br><br><center><h2>Why do caches work? (Locality principles)</h2></center>
+
+<h4>Temporal locality</h4>
+Location of memory reference is likely to be the same as another recent reference.Variables are reused in program Loops, function calls, etc.
+<h4>Spacial locality</h4>
+Location of memory is likely to be near another recent reference Matrices, arrays Stack accesses
+
+<br><br><center><h2>Caching Vocabulary</h2></center>
+<h4>Miss Penalty</h4>Time to fetch a block from a lower level cache or main memory
+<h4>Block (Line) size</h4>Amount of data in each cache address (32-256 bytes)
+<h4>Bank Size</h4> # of sets in the cache
+<h4>Cache Size </h4>
+Total Data contained = (bank size) x (associativity) x (block size)
+<h4>Cache Hit </h4>State in which data requested for processing by a component or application is found in the cache memory.
+<h4>Cache miss </h4>State where the data requested for processing by a component or application is not found in the cache memory. Requires data to be fetched from other cache levels or the main memory.
+
+<br><br><center><h2>Cache types</h2></center>
+<h4>Direct-mapped</h4>
+ Memory location maps to single specific cache line (block)<br>
+ What if two locations map to same line (block)?<br>
+ Conflict, forces a miss
+<h4>Set-associative</h4>
+ Memory location maps to a set containing several blocks.<br>
+ Each block still has tag and data, and sets can have 2,4,8....blocks. <br>Blocks/set = associativity<br>
+ Why? Resolves conflicts in direct-mapped caches.<br>
+ If two locations map to same set, one could be stored in first block of the set, and another in second block of the set.
+<h4>Fully-associative</h4>
+ Cache only has one set. All memory locations map to this set.<br>
+ This one set has all the blocks, and a given location could be in any of these blocks.<br>
+ No conflict misses, but costly. Only used in very small caches.
+
+<br><br><center><h2>Replacement Policies</h2></center>
+When a MM block needs to be brought in while all the CM blocks are occupied, one of them has to be replaced. The selection of this block to be replaced can be determined in one of the following ways.
+
+<h4>Optimal Replacement</h4>Replace the block which is no longer needed in the future. If all blocks currently in CM will be used again, replace the one which will not be used in the future for the longest time.
+<h4>Random selection</h4> Replace a randomly selected block among all blocks currently in CM.
+<h4>FIFO (first-in first-out)</h4> Replace the block that has been in CM for the longest time.
+<h4>LRU</h4> Replace the block in CM that has not been used for the longest time, i.e., the least recently used (LRU) block.
+
+<br><br><center><h2>Write policies</h2></center>
+There are two cases for a write policy to consider:
+
+<h4>Write-hit policies</h4> What happens when there is a write hit. We
+considered two of these:
+<h5>• Write-through (also called store-through)</h5>
+ Write to main memory whenever a write is performed to the cache.
+<h5>• Write-back (also called store-in or copy-back)</h5>
+Write to main memory only when a block is purged from the cache.
+
+<h4>Write-miss policies:</h4> What happens when there is a write miss.
+These policies can be characterized by three semi-dependent
+parameters.
+<h5>• Write-allocate vs. no-write-allocate</h5> If a write misses,
+do/do not allocate a line in the cache for the data written.
+<h5>• Fetch-on-write vs. no-fetch-on-write</h5> A write that misses in
+the cache causes/does not cause the block to be fetched
+from a lower level in the memory hierarchy.
+
+<br><br><center><h2>MIPS Cache</h2></center>
+MIPS Cores have separate Instruction and data caches so that an instruction can be read and a load or store done simultaneously. Except for the 4KE all caches are four way Set associative. For the 4KE there is a choice from a direct mapped cache to a four way set associative cache. More ways of associating cache line with in a page to physical memory usually means less cache threshing. Cache line size is fixed at 16 bytes for the 4KE and 32 bytes for the rest of the cores. Lines per way will determine the cache size. These are a power of 2 starting from 64 up to 512. This corresponds to a cache size of eight to 64K.
 
 </p>
 
